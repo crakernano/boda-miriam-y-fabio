@@ -1,0 +1,129 @@
+/* ==========================================================
+   EJE CRONOLÓGICO - mobile first
+   Requiere Bootstrap 5 (solo se usa .container en el HTML)
+   ========================================================== */
+
+:root {
+  --tl-line: #9c9c8a;          /* color de la línea central */
+  --tl-text: #2b2b2b;          /* hora y título */
+  --tl-muted: #8a8a7a;         /* dirección */
+  --tl-heart-fill: #c98d96;    /* relleno del corazón */
+  --tl-heart-stroke: #7a4a52;  /* borde del corazón */
+  --tl-gap: 0.75rem;           /* separación entre texto y línea */
+  --tl-icon-size: 120px;       /* tamaño de la ilustración (móvil) */
+  --tl-heart-w: 26px;
+  --tl-heart-h: 24px;
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0 auto;
+  padding: 1rem 0 2rem;
+  max-width: 760px;
+}
+
+/* Línea vertical central */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: var(--tl-line);
+  transform: translateX(-50%);
+}
+
+/* ---------- Elemento ---------- */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 0 var(--tl-gap) 2rem;
+  text-align: center;
+}
+
+/* Izquierda / derecha */
+.timeline-item--left  { align-self: flex-start; }
+.timeline-item--right { align-self: flex-end; }
+
+/* Efecto escalonado: los de la derecha suben para intercalarse */
+.timeline-item--right { margin-top: -3.5rem; }
+.timeline-item--right:first-child { margin-top: 0; }
+
+/* Corazón sobre la línea */
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--tl-icon-size) + 0.5rem);
+  width: var(--tl-heart-w);
+  height: var(--tl-heart-h);
+  background: no-repeat center / contain
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 24'><path d='M13 22C5 15 1.5 11.5 1.5 7.2 1.5 4 4 1.5 7.2 1.5c2.3 0 4.5 1.3 5.8 3.4 1.3-2.1 3.5-3.4 5.8-3.4 3.200 0 5.700 2.500 5.700 5.700C24.500 11.500 21 15 13 22z' fill='%23c98d96' stroke='%237a4a52' stroke-width='1.6' stroke-linejoin='round'/></svg>");
+  z-index: 2;
+}
+.timeline-item--left::after  { right: calc(var(--tl-heart-w) / -2); }
+.timeline-item--right::after { left:  calc(var(--tl-heart-w) / -2); }
+
+/* ---------- Contenido ---------- */
+.timeline-icon {
+  display: block;
+  width: var(--tl-icon-size);
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 0.5rem;
+}
+
+.timeline-time {
+  margin: 0 0 0.5rem;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--tl-text);
+}
+
+.timeline-title {
+  margin: 0 0 0.35rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.25;
+  color: var(--tl-text);
+}
+
+.timeline-address {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  color: var(--tl-muted);
+  overflow-wrap: anywhere; /* evita desbordes en pantallas muy estrechas */
+}
+
+/* Móviles muy pequeños (≤ 360px) */
+@media (max-width: 360px) {
+  :root { --tl-icon-size: 100px; }
+  .timeline-item { padding-bottom: 1.5rem; }
+  .timeline-item--right { margin-top: -2.5rem; }
+}
+
+/* ---------- Tablet y escritorio ---------- */
+@media (min-width: 768px) {
+  :root {
+    --tl-icon-size: 170px;
+    --tl-gap: 2rem;
+    --tl-heart-w: 30px;
+    --tl-heart-h: 28px;
+  }
+  .timeline-item { padding-bottom: 3rem; }
+  .timeline-item--right { margin-top: -5rem; }
+  .timeline-time    { font-size: 0.95rem; }
+  .timeline-title   { font-size: 1.05rem; }
+  .timeline-address { font-size: 0.85rem; }
+}

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap CSS (CDN) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>Invitación de boda</title>
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: Georgia, serif; background: #f6efe6; }
+
+  /* ---------- PANTALLA DEL SOBRE ---------- */
+  #intro {
+    position: fixed; inset: 0; z-index: 10;
+    display: grid; place-items: center;
+    background: #e9dcc9;
+    transition: opacity .8s ease, visibility .8s;
+  }
+  #intro.fuera { opacity: 0; visibility: hidden; }
+
+  .escena { perspective: 1200px; }
+
+  .sobre {
+    position: relative;
+    width: min(80vw, 420px);
+    aspect-ratio: 3 / 2;
+    cursor: pointer;
+    transition: transform 1s ease;
+  }
+
+  /* fondo del sobre */
+  .sobre .trasera {
+    position: absolute; inset: 0;
+    background: #d9c3a5; border-radius: 4px;
+  }
+
+  /* carta interior */
+  .sobre .carta {
+    position: absolute; left: 6%; right: 6%; top: 6%; bottom: 6%;
+    background: #fffdf8;
+    display: grid; place-items: center; text-align: center;
+    padding: 1rem;
+    transition: transform .9s ease .5s;
+    z-index: 2;
+  }
+
+  /* parte delantera (triángulos laterales e inferior) */
+  .sobre .frontal {
+    position: absolute; inset: 0; z-index: 3;
+    background: #e4cfb0;
+    clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%);
+    border-radius: 4px;
+  }
+
+  /* solapa */
+  .sobre .solapa {
+    position: absolute; left: 0; right: 0; top: 0; height: 55%;
+    background: #cfb590;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top;
+    transition: transform .6s ease, z-index 0s .3s;
+    z-index: 4;
+  }
+
+  /* sello */
+  .sobre .sello {
+    position: absolute; left: 50%; top: 55%;
+    width: 56px; height: 56px; margin: -28px 0 0 -28px;
+    border-radius: 50%; background: #8c2f39; color: #fff;
+    display: grid; place-items: center; font-size: 1.1rem;
+    z-index: 5; transition: opacity .3s;
+  }
+
+  .aviso { margin-top: 2rem; text-align: center; color: #6b5a45;
+           letter-spacing: .1em; font-size: .9rem; }
+
+  /* ---------- ESTADO ABIERTO ---------- */
+  .sobre.abierto .solapa { transform: rotateX(180deg); z-index: 1; }
+  .sobre.abierto .sello  { opacity: 0; }
+  .sobre.abierto .carta  { transform: translateY(-45%); }
+  .sobre.zoom            { transform: scale(2.5); }
+
+  /* ---------- CONTENIDO REAL DE LA WEB ---------- */
+  main { 
+    min-height: 100vh; 
+    /* display: grid;  */
+    place-items: center;
+    text-align: center; 
+    /* padding: 2rem;  */
+  }
+  body.bloqueado { overflow: hidden; }
+</style>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="assets/css/timeline.css">
+</head>
+<body class="bloqueado">
+
+<div id="intro">
+  <div>
+    <div class="escena">
+      <div class="sobre" id="sobre" role="button" tabindex="0"
+           aria-label="Abrir invitación">
+        <div class="trasera"></div>
+        <div class="carta"><p>Miriam &amp; Fabio</p></div>
+        <div class="frontal"></div>
+        <div class="solapa"></div>
+        <div class="sello">M&amp;F</div>
+      </div>
+    </div>
+    <p class="aviso">TOCA EL SOBRE PARA ABRIR</p>
+  </div>
+</div>
+<!-- boda-miriam-y-fabio-->
+<main>
+    <header class="header">
+    <!-- Izquierda -->
+    <nav class="header-left">
+      <p>22 de Mayo de 2027</p>
+    </nav>
+
+    <!-- Centro -->
+    <div class="header-center">
+      <h1>M &amp; F</h1>
+    </div>
+
+    <!-- Derecha -->
+    <div class="header-right">
+      <button class="btn-cta">Confirmar</button>
+    </div>
+  </header>
+  
+  <div class="cabecera">
+    <div id="header-content">
+      <span>¡NOS CASAMOS!</span>
+      <h1>Miriam &amp; Fabio</h1>
+      <p>Un día para recordar</p>
+      <img src="assets/img/adorno-olivo.png" alt="Icono de corazón" width="50">
+    </div>
+  </div><!-- Fin de .cabecera -->
+
+  <div class="row" id="summary"> 
+    <div class="col-4">
+      <p>Fecha</p>
+      <span>Sábado, 22 de Mayo de 2027</span>
+    </div>
+    <div class="col-4">
+      <p>Lugar</p>
+      <span>Basílica María Auxiliadora</span>
+    </div>
+    <div class="col-4">
+      <p>Confirma tu asistencia</p>
+      <span>Antes del XXX/XXX</span>
+    </div>
+    <!-- <div class="col-3"><button class="btn-cta" id="btn-cta-summary">Confirmar</button></div> -->
+  </div><!-- Fin de #summary -->
+
+  <div class="countdown-container">
+  <div class="countdown-box">
+    <div class="logo"><img src="assets/img/logo.png" alt="Logo"></div>
+    <span>Nuestra invitación</span>
+    <p>Y no se nos ocurre una forma mejor de celebrar este día que rodeados de las personas que más queremos.</p>
+    <p>Nos encantará compartirlo con vosotros</p>
+    <!-- <div class="filigrana"><img src="assets/img/filigrana.png" alt="Filigrana"></div> -->
+    <div class="countdown-title">Cuenta regresiva</div>
+    <div class="row countdown">
+      <div class="countdown-item col-3">
+        <span id="days">00</span>
+        <p>Días</p>
+      </div>
+      <div class="countdown-item col-3">
+        <span id="hours">00</span>
+        <p>Horas</p>
+    </div>
+    <div class="countdown-item col-3">
+      <span id="minutes">00</span>
+      <p>Minutos</p>
+    </div>
+    <div class="countdown-item col-3">
+      <span id="seconds">00</span>
+      <p>Segundos</p>
+    </div>
+    </div>
+  </div><!-- Fin de .countdown-box -->
+  </div><!-- Fin de .countdown-container -->
+
+  <div class="cronologic-box">
+    <div class="our-day-container">
+      <img src="assets/img/adorno-olivo.png" alt="filigrana de olivo">
+      <h2>Nuestro día</h2>
+    </div>
+  </div>
+
+    <!-- ===== TIMELINE===== -->
+  <section class="container px-2 py-4">
+    <ol class="timeline">
+
+      <li class="timeline-item timeline-item--left">
+        <img class="timeline-icon" src="assets/img/iglesia.png" alt="Ceremonia" loading="lazy">
+        <p class="timeline-time">00:00</p>
+        <h3 class="timeline-title">Basílica Menor Salesiana</h3>
+        <p class="timeline-address">Ronda de Atocha, 25,<br>Arganzuela</p>
+      </li>
+
+      <li class="timeline-item timeline-item--right">
+        <img class="timeline-icon" src="assets/img/finca.png" alt="Finca" loading="lazy">
+        <p class="timeline-time">00:00</p>
+        <h3 class="timeline-title">Finca Soto de Gracia</h3>
+        <p class="timeline-address">M-103, Km 21, 28150<br>Valdetorres de Jarama</p>
+      </li>
+
+      <li class="timeline-item timeline-item--left">
+        <img class="timeline-icon" src="assets/img/coctel.png" alt="Cóctel" loading="lazy">
+        <p class="timeline-time">00:00</p>
+        <h3 class="timeline-title">Cóctel</h3>
+        <p class="timeline-address">Ronda de Atocha, 25, Arganzuela, 28012 Madrid</p>
+      </li>
+
+      <li class="timeline-item timeline-item--right">
+        <img class="timeline-icon" src="assets/img/comida.png" alt="Comida" loading="lazy">
+        <p class="timeline-time">00:00</p>
+        <h3 class="timeline-title">Comida</h3>
+        <p class="timeline-address">Ronda de Atocha, 25, Arganzuela, 28012 Madrid</p>
+      </li>
+
+      <li class="timeline-item timeline-item--left">
+        <img class="timeline-icon" src="assets/img/fiesta.png" alt="Fiesta" loading="lazy">
+        <p class="timeline-time">00:00</p>
+        <h3 class="timeline-title">Fiesta</h3>
+        <p class="timeline-address">Ronda de Atocha, 25, Arganzuela, 28012 Madrid</p>
+      </li>
+
+    </ol>
+  </section>
+  <!-- ===== FIN DE TIMELINE ===== -->
+
+  <div class="ceremony-box">
+    <img src="assets/img/basilica.png" alt="Basilica María Auxiliadora" id="basilica-img">
+    <div class="ceremony-info">
+      <span>La ceremonia</span>
+      <h2>NUESTRA BASÍLICA</h2>
+      <p>
+      La ceremonia tendrá lugar en la recientemente nombrada Basílica María Auxiliadora, 
+      un lugar que simboliza algo más que una iglesia para nosotros.         
+      Es la parroquia de nuestro colegio, dónde hemos crecido y 
+      seguimos formando parte de ella.</p>
+
+      <img src="assets/img/escudo_mari_auxi.png" alt="Escudo de la Basílica María Auxiliadora" id="escudo">
+    </div>
+  </div><!-- Fin de .ceremony-box -->
+
+    <div class="how-arrive-box">
+      <h2>¿CÓMO LLEGAR?</h2>
+      <P>
+        ¡Queremos ponéroslo lo más fácil posible para que solo tengáis que preocuparos de disfrutar! 
+            Aquí os dejamos las diferentes opciones de transporte para llegar a nuestra boda. 
+      </P>
+
+      <div class="row" id="options-box">
+        <div class="col-6 col-md-3">
+          <img src="assets/img/bus.png" alt="Bus" class="icon">
+          <h3>EN BUS</h3>
+          <p>Líneas 36, 41 y 119</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <img src="assets/img/bus.png" alt="Metro" class="icon">
+          <h3>EN METRO</h3>
+          <p>Atocha (Línea 1) Embajadores (Línea 3 y 5) Palos de la Fronte (Línea 3)</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <img src="assets/img/taxi.png" alt="Taxi" class="icon">
+          <h3>EN TAXI</h3>
+          <p>Calle Ronda de Atocha 25, Arganzuela</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <img src="assets/img/coche.png" alt="Coche" class="icon">
+          <h3>EN COCHE</h3>
+          <p>Justo hay un parking 24 horas en Calle Ronda de Atocha 17</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="our-estate-box">
+      <span>La celebración</span>
+      <h2>NUESTRA FINCA</h2>
+
+      <p>Soto de Gracia es una finca ubicada en un espacio rústico
+      único, en mitad de un pinar 
+      a orillas del río Jarama. Allí
+      viviremos juntos un día para recordar.</p>
+
+      <p>Hay un amplio aparcamiento para quienes prefiráis venir
+      en coche, pero nuestra preferencia es que os subáis al
+      autobús y os dediquéis solo a disfrutar del evento sin
+      ninguna preocupación.</p>
+
+      <p>Los autobuses saldrán y regresarán de la Basílica María
+      Auxiliadora.</p>
+
+      <img src="assets/img/soto-de-gracia.png" alt="Soto de Gracia" id="soto">
+
+    </div><!-- Fin de .our-estate-box -->
+
+    <div class="dress-code-box">
+      <img src="assets/img/dress-code.png" alt="Codigo de vestimenta" id="dress-code">
+      <h2>DRESS CODE</h2>
+      <p>Queremos que este día sea especial para todos, así que hemos preparado 
+      unas pequeñas recomendaciones para que solo tengáis que preocuparos de disfrutar.</p>
+
+      <div class="row" id="dress-code-options">
+        <div class="col-6">
+          <img src="assets/img/dress-code-her.png" alt="codigo de vestimenta para ella" class="icon">
+          <h3>Ellas</h3>
+          <p>Mi única regla es que vengas cómoda,que te sientas tu misma para poder disfrutar de este gran día. 
+             Así que,si tienes un vestido en tu armario que te encanta,pero ya lo usaste en eventos anteriores…
+            ¡No te preocupes por repetir! Sácalo de nuevo a relucir.</p>
+        </div>
+        <div class="col-6">
+          <img src="assets/img/dress-code-him.png" alt="codigo de vestimenta para el" class="icon">
+          <h3>Ellos</h3>
+          <p>Estaría bien que todos lleváramos corbata, y por favor, nada de zapatillas blancas sin calcetines…¡Zapatos!</p>
+        </div>
+    </div>
+
+    <div class="detail-box">
+      <div class="data-detail-box">
+        <span>UN DETALLE</span>
+        <h2>POR ULTIMO Y MENOS IMPORTANTE</h2>
+        <p>Aunque sea un cliché, lo más nos importe es que este día vengáis 
+          con mucha ilusión a celebrarlo con nosotros.
+          Si, además, queréis ayudarnos aquí os dejamos nuestra cuenta:</p>
+
+        <p>MIRIAM Y FABIO</p>
+        <img src="assets/img/adorno-olivo.png" alt="filigrana de olivo" class="filigrana-olivo">
+        <span id="count-number" >ES08 2100 2504 6102 1021 3834</span>
+      </div>
+    </div><!-- Fin de .detail-box -->
+
+    <footer>
+      <div class="logo"><img src="assets/img/logo_footer.png" alt="Logo"></div>
+      <p>22 MAYO 2027 · MADRID</p>
+      <span>Con todo nuestro cariño, para quienes hacen nuestra vida más bonita.</span>
+    </footer>
+
+
+</main>
+
+<script>
+  const countdownTarget = new Date('2027-05-22T00:00:00+02:00').getTime();
+  const countdownDays = document.getElementById('days');
+  const countdownHours = document.getElementById('hours');
+  const countdownMinutes = document.getElementById('minutes');
+  const countdownSeconds = document.getElementById('seconds');
+
+  function updateCountdown() {
+    const remaining = Math.max(0, countdownTarget - Date.now());
+    const days = Math.floor(remaining / 86400000);
+    const hours = Math.floor((remaining % 86400000) / 3600000);
+    const minutes = Math.floor((remaining % 3600000) / 60000);
+    const seconds = Math.floor((remaining % 60000) / 1000);
+
+    countdownDays.textContent = String(days).padStart(2, '0');
+    countdownHours.textContent = String(hours).padStart(2, '0');
+    countdownMinutes.textContent = String(minutes).padStart(2, '0');
+    countdownSeconds.textContent = String(seconds).padStart(2, '0');
+
+    if (remaining === 0) {
+      clearInterval(countdownInterval);
+    }
+  }
+
+  const countdownInterval = setInterval(updateCountdown, 1000);
+  updateCountdown();
+
+  const intro = document.getElementById('intro');
+  const sobre = document.getElementById('sobre');
+  let abierto = false;
+
+  function abrir() {
+    if (abierto) return;
+    abierto = true;
+    // if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    //   document.body.classList.remove('bloqueado');
+    //   intro.remove();
+    //   return;
+    // }
+    sobre.classList.add('abierto');                       // solapa + carta
+    setTimeout(() => sobre.classList.add('zoom'), 1500);  // zoom
+    setTimeout(() => intro.classList.add('fuera'), 1900); // fundido
+    setTimeout(() => {
+      document.body.classList.remove('bloqueado');
+      intro.remove();
+    }, 2800);
+  }
+
+  sobre.addEventListener('click', abrir);
+  sobre.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') abrir();
+  });
+</script>
+</body>
+</html>

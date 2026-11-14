@@ -1,0 +1,295 @@
+/* Base: móviles (el CSS principal de la página define los estilos base). */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Style+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Style+Script&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Cinzel', serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+#summary.row,
+#options-box.row,
+#dress-code-options.row {
+  margin-inline: 0;
+}
+
+.header {
+    width: 100%;
+    min-height: 4rem;
+    background-color: #F9F7EB;
+    color: #696d4b;
+    /*padding: .2rem .2rem;*/
+    padding-left: .5rem;
+    padding-right: .5rem;
+    
+    /* Magia de CSS Grid para 3 columnas equilibradas */
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+.header p,
+.header h1 {margin: 0;}
+.cabecera #header-content span{font-size: 26px; font-family: 'Cinzel', serif; color:#E4DED2}
+.cabecera #header-content h1{font-size: 50px; font-family: 'Cinzel', serif; color:#E4DED2}
+.cabecera #header-content p{color: #E4DED2; font-weight: 400; font-style: italic;}
+
+
+/* 1. Elementos a la izquierda */
+.header-left {
+    display: flex;
+    gap: 1.5rem;
+    justify-self: start; /* Alinea a la izquierda */
+}
+
+.header-left a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.header-left a:hover {color: white;}
+
+/* 2. Cabecera/Título en el centro */
+.header-center {justify-self: center; /* Centra exactamente en medio */}
+
+.header-center h1 {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+/* 3. Botón al final (derecha) */
+.header-right {justify-self: end; /* Alinea a la derecha */}
+
+.btn-cta {
+    background-color: #545934;
+    font-size: 11px;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-cta:hover {background-color: #2563eb;}
+
+.cabecera {
+    font-family: 'Montserrat', serif;    
+    background-image: url('assets/img/header_background.png');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    /*margin: 2rem 0;*/
+    min-height: 300px;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.header .header-left{font-size: 11px; font-family: 'Montserrat', serif;}
+.header-center > h1{font-size: 11px;}
+.header.h1{font-size: 11px;}
+
+#summary{background-color: #FFF;}
+#summary p{font-size: 10px; font-weight: 600; margin-bottom: 0;}
+#summary span{font-size: 8px;}
+#btn-cta-summary{display: none;}
+.countdown-container{
+    /* display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 0;
+    font-size: 1.2rem;
+    color: #333; */
+    /*background-color: #FFF;*/
+    background-image: url('assets/img/countdown_bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 2.5% 2.5%;
+}
+.countdown-box{
+  background-color: rgba(255, 255, 255, 0.8);
+  padding:2rem;
+}
+.countdown-container .countdown-box .logo{margin-bottom: 1rem;}
+.countdown-container .countdown-box span{font-size: 9px;}
+.countdown-container .countdown-box p{font-size: 15px; font-style: italic;}
+.countdown-container .countdown-box .countdown-title{font-size: 8px; margin-bottom: 2rem;}
+.countdown-container .countdown-box .countdown-item{font-size: 1rem;}
+.countdown-container .countdown-box .countdown-item p{font-size: 10px;}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.25rem, 2vw, 1rem);
+  margin: 0;
+}
+
+.countdown-item{
+  width: auto;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.cronologic-box .our-day-container img{width: 210px;}
+.cronologic-box .our-day-container p{font-size: 8px; font-style: italic; padding-left: 1rem; padding-right: 1rem;} 
+.cronologic-box .our-day-container span{font-size: 9px;}
+.cronologic-box .our-day-container h2{font-size: 8px;}
+
+.ceremony-box, .how-arrive-box{background-color:#FAF8EC}
+.ceremony-box #basilica-img{width: 390px;}
+.ceremony-box span{font-size: 9px;}
+.ceremony-box p{font-size: 8px; font-style: italic; padding-left: 1rem; padding-right: 1rem;} 
+.ceremony-box h2{font-size: 8px;}
+.ceremony-box #escudo{width: 150px; margin-bottom: 1rem;}
+
+.our-estate-box img{width: 210px;}
+.dress-code-box{background-color:#FAF8EC; padding-top: 2rem;}
+.dress-code-box h2{font-size: 8px;}
+.dress-code-box h3{font-size: 12px; font-weight: 500; margin-top: 1rem;}
+.dress-code-box p{font-size: 8px; font-style: italic; padding-left: 1rem; padding-right: 1rem;}
+.dress-code-box img#dress-code{width: 154px;}
+.dress-code-box #dress-code-options .icon img{width:45px}
+.dress-code-box #dress-code-options.row div.col-6 img.icon{width: 120px;}
+.detail-box{background-color: #FFF; padding: 2rem;}
+.data-detail-box{border: solid #000 1px}
+.how-arrive-box{padding-right: 1rem;}
+.how-arrive-box #options-box {
+  --bs-gutter-x: 0.5rem;
+  --bs-gutter-y: 1rem;
+}
+.how-arrive-box h2{font-size: 8px;}
+.how-arrive-box h3{font-size: 12px; font-weight: 500; margin-top: 1rem;}
+.how-arrive-box p{font-size: 8px; font-style: italic; padding-left: 1rem; padding-right: 1rem;}
+.how-arrive-box #options-box p {padding-inline: 0.25rem;}
+.how-arrive-box #options-box img{width: 32px;}
+
+.our-estate-box{margin-bottom: 1rem;}
+.our-estate-box h2{font-size: 8px;}
+.our-estate-box span{font-size: 9px;}
+.our-estate-box p{font-size: 8px; font-style: italic; padding-left: 1rem; padding-right: 1rem;}
+.our-estate-box img{width: 390px;}
+
+.detail-box h2{font-size: 8px;} 
+.detail-box span{font-size: 9px;}
+.detail-box p{font-size: 8px; font-style: italic; padding-left: 1rem; padding-right: 1rem;}
+.detail-box span#count-number{font-weight: 800;}
+
+footer{background-color: #555935; padding-bottom: 3rem ;}
+footer p{color:#F8EDE3E5; font-size: 15px;}
+footer span{color: #F8EDE3E5; font-size: 8px;}
+footer img{width: 210px;}
+footer .logo img{width: 60px; padding-top: 1rem; padding-bottom: 1rem;}
+
+.filigrana-olivo {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: block;
+  width: min(100%, 180px);
+  height: auto;
+  margin-inline: auto;
+}
+
+/* Móviles grandes y tabletas pequeñas */
+@media (max-width: 599.98px) {
+  #summary.row {--bs-gutter-x: 0.5rem;}
+}
+
+@media (min-width: 600px) {
+  .sobre {width: min(70vw, 440px);}
+  main {padding: 2.5rem;}
+}
+
+/* Tabletas grandes y escritorio */
+@media (min-width: 900px) {
+  .aviso {font-size: 1rem;}
+  .sobre {width: min(50vw, 480px);}
+
+  /* main {padding: 3rem;} */
+  main{padding: 0;}
+  .header-left{font-size: 20px;}
+
+}
+
+/* Pantallas de escritorio amplias */
+@media (min-width: 1200px) {
+  .sobre {width: 480px;}
+  main{padding: 0;}
+  .countdown-container {
+    display: grid;
+    justify-items: center;
+  }
+  .header-left p{font-size: 15px; margin-left: 1rem;}
+  .header-center h1{font-size: 20px;}
+  .header-right{margin-right: 1rem;}
+
+  #summary{padding-top: 1rem; padding-bottom: 1rem;}
+  #summary p{font-size: 20px;}
+  #summary span{font-size: 15px;}
+
+  .countdown-box{
+    width: 50%;
+    margin: 0;
+  }
+  .countdown-container .countdown-box .countdown-item span{font-size: 15px;}
+  .countdown-container .countdown-box .countdown-item p{font-size: 20px;}
+
+  .ceremony-box{padding-top: 2rem;}
+  .ceremony-box .ceremony-info span{font-size: 15px; color: #8A7358;}
+  .ceremony-box .ceremony-info h2{font-size: 20px;}
+  .ceremony-box .ceremony-info p{font-size: 10px;}
+
+  .how-arrive-box h2{font-size: 20px;}
+  .how-arrive-box h3{font-size: 12px;}
+  .how-arrive-box p{font-size: 10px;}
+
+  .our-estate-box{padding-top: 2rem;}
+  .our-estate-box h2{font-size: 20px;}
+  .our-estate-box span{font-size: 15px;}
+  .our-estate-box p{font-size: 10px;}
+
+  .dress-code-box{padding-top: 2rem; padding-left: 20%; padding-right: 20%;}
+  .dress-code-box h2{font-size: 20px;}
+  .dress-code-box h3{font-size: 12px;}
+  .dress-code-box p{font-size: 10px;}
+}
+
+/* Pantallas estrechas en horizontal: evita que el sobre y el aviso desborden */
+@media (max-height: 480px) and (orientation: landscape) {
+  .sobre {
+    width: min(55vw, 300px);
+  }
+
+  .aviso {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+  }
+
+  
+}
+
+/* Respeta la preferencia del usuario de reducir las animaciones */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
