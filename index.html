@@ -93,6 +93,7 @@
 </style>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="assets/css/timeline.css">
+<link rel="stylesheet" href="assets/css/form.css">
 </head>
 <body class="bloqueado">
 
@@ -335,6 +336,70 @@
         <span id="count-number" >ES08 2100 2504 6102 1021 3834</span>
       </div>
     </div><!-- Fin de .detail-box -->
+
+      <!-- ===== FORMULARIO DE CONFIRMACIÓN ===== -->
+  <section class="rsvp" id="confirmacion">
+    <div class="container">
+      <div class="row g-4 g-lg-5 align-items-center">
+
+        <!-- Formulario -->
+        <div class="col-12 col-lg-6">
+          <p class="rsvp-eyebrow">Confirmación de asistencia</p>
+          <h2 class="rsvp-title">¿Nos acompañas en nuestro gran día?</h2>
+          <p class="rsvp-lead">Por favor, confirma tu asistencia antes del <span>DD de mes</span></p>
+
+          <!-- Cambia action/method por tu backend o servicio de formularios -->
+          <form action="#" method="post" novalidate>
+            <div class="row gx-4 gy-4">
+
+              <div class="col-12 col-sm-6">
+                <label class="rsvp-label" for="nombre">Nombre y apellido</label>
+                <input class="rsvp-control" type="text" id="nombre" name="nombre"
+                       placeholder="Tu nombre completo" autocomplete="name" required>
+              </div>
+
+              <div class="col-12 col-sm-6">
+                <label class="rsvp-label" for="email">Correo electrónico</label>
+                <input class="rsvp-control" type="email" id="email" name="email"
+                       placeholder="tu.correo@ejemplo.com" autocomplete="email" required>
+              </div>
+
+              <div class="col-6">
+                <label class="rsvp-label" for="acompanantes">Acompañante</label>
+                <input class="rsvp-control" type="number" id="acompanantes" name="acompanantes"
+                       placeholder="N.º de acompañantes" min="0" inputmode="numeric">
+              </div>
+
+              <div class="col-6">
+                <label class="rsvp-label" for="ninos">¿Vienes con niños?</label>
+                <input class="rsvp-control" type="number" id="ninos" name="ninos"
+                       placeholder="N.º de niños" min="0" inputmode="numeric">
+              </div>
+
+              <div class="col-12">
+                <label class="rsvp-label" for="menu">¿Tienes alguna alergia, intolerancia o necesitas un menú especial?</label>
+                <textarea class="rsvp-control" id="menu" name="menu" rows="3"
+                          placeholder="Cuéntanos si tienes alguna alergia, intolerancia o necesitas un menú especial."></textarea>
+              </div>
+
+              <div class="col-12">
+                <button type="submit" class="rsvp-btn">Confirmar</button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+
+        <!-- Foto: cambia la ruta de la imagen -->
+        <div class="col-12 col-lg-6">
+          <img class="rsvp-photo" src="assets/img/pareja.jpg" alt="Foto de los novios" loading="lazy">
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- FORMULARIO DE CONFIRMACIÓN -->
+
 
     <footer>
       <div class="logo"><img src="assets/img/logo_footer.png" alt="Logo"></div>

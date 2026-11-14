@@ -1,0 +1,147 @@
+/* ==========================================================
+   FORMULARIO DE CONFIRMACIÓN - mobile first
+   Requiere Bootstrap 5 (grid: container, row, col-*)
+   ========================================================== */
+
+:root {
+  --rsvp-bg: #eceee6;          /* fondo de la sección */
+  --rsvp-text: #2b2b2b;        /* títulos y etiquetas */
+  --rsvp-muted: #8a8a6a;       /* placeholders y eyebrow */
+  --rsvp-line: #b9b9a3;        /* línea inferior de los campos */
+  --rsvp-line-focus: #5a5d36;  /* línea al enfocar */
+  --rsvp-accent: #5a5d36;      /* botón */
+  --rsvp-accent-hover: #46482a;
+}
+
+.rsvp {
+  background: var(--rsvp-bg);
+  padding: 3rem 0;
+}
+
+/* ---------- Cabecera ---------- */
+.rsvp-eyebrow {
+  margin: 0 0 0.75rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--rsvp-muted);
+}
+
+.rsvp-title {
+  margin: 0 0 1.5rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(1.6rem, 7vw, 2.4rem);
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--rsvp-text);
+}
+
+.rsvp-lead {
+  margin: 0 0 1.75rem;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: var(--rsvp-text);
+}
+
+/* ---------- Campos ---------- */
+.rsvp-label {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 0.72rem;
+  color: var(--rsvp-text);
+}
+
+.rsvp-control {
+  display: block;
+  width: 100%;
+  padding: 0.45rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--rsvp-line);
+  border-radius: 0;
+  background: transparent;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-size: 1rem;            /* 16px: evita el zoom automático de iOS */
+  font-weight: 300;
+  color: var(--rsvp-text);
+  transition: border-color 0.2s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.rsvp-control::placeholder {
+  color: var(--rsvp-muted);
+  opacity: 1;
+}
+
+.rsvp-control:focus {
+  outline: none;
+  border-bottom-color: var(--rsvp-line-focus);
+  box-shadow: 0 1px 0 0 var(--rsvp-line-focus);
+}
+
+textarea.rsvp-control {
+  resize: vertical;
+  min-height: 4.5rem;
+}
+
+/* Quita las flechas de los input number */
+.rsvp-control[type="number"] { -moz-appearance: textfield; }
+.rsvp-control[type="number"]::-webkit-outer-spin-button,
+.rsvp-control[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* ---------- Botón ---------- */
+.rsvp-btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.8rem 2rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--rsvp-accent);
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.rsvp-btn:hover,
+.rsvp-btn:focus-visible { background: var(--rsvp-accent-hover); }
+
+.rsvp-btn:focus-visible {
+  outline: 2px solid var(--rsvp-accent);
+  outline-offset: 3px;
+}
+
+/* En móvil el botón ocupa todo el ancho (más fácil de pulsar) */
+@media (max-width: 575.98px) {
+  .rsvp-btn { width: 100%; }
+}
+
+/* ---------- Foto ---------- */
+.rsvp-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+/* ---------- Escritorio ---------- */
+@media (min-width: 992px) {
+  .rsvp { padding: 5rem 0; }
+  .rsvp-eyebrow { font-size: 0.7rem; }
+  .rsvp-lead { font-size: 0.95rem; }
+  .rsvp-label { font-size: 0.78rem; }
+  .rsvp-photo { aspect-ratio: 3 / 4; }
+}
