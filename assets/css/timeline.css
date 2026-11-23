@@ -14,7 +14,7 @@
   --tl-heart-w: 26px;
   --tl-heart-h: 24px;
 }
-
+#timeline{background-color: #FFF;}
 .timeline {
   position: relative;
   display: flex;
@@ -101,7 +101,7 @@
   margin: 0;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-style: italic;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 28px;
   letter-spacing: 0.16px;
   font-weight: 300;

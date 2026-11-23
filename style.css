@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Style+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Style+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Style+Script&display=swap');
 
 * {
     box-sizing: border-box;
@@ -124,25 +125,35 @@ img {
   padding:2rem;
 }
 .countdown-container .countdown-box .logo{margin-bottom: 1rem;}
-.countdown-container .countdown-box span{font-size: 40px; color: #8A7358; font-weight: 300; line-height: 60px; letter-spacing: 0.16px;}
+.countdown-container .countdown-box span{font-size: 18px; color: #8A7358; font-weight: 300; line-height: 60px; letter-spacing: 0.16px;}
 .countdown-container .countdown-box p{font-size: 8.6px; font-style: italic; font-weight: 300; line-height: 15.84px; letter-spacing: 2.96px;}
 .countdown-container .countdown-box .countdown-title{font-size: 8px; margin-bottom: 2rem; font-weight: 300; letter-spacing: 2.59px; line-height: 12.96px; color:#8A7358;}
-.countdown-container .countdown-box .countdown-item{font-size: 1rem;}
+.countdown-container .countdown-box .countdown-item{font-size: 1rem; height: 140px;}
 .countdown-container .countdown-box .countdown-item p{font-size: 10px;}
+.countdown-container .countdown-box span#days{font-size: 40px;}
+.countdown-container .countdown-box span#hours{font-size: 40px;}
+.countdown-container .countdown-box span#minutes{font-size: 40px;}
+.countdown-container .countdown-box span#seconds{font-size: 40px;}
 
 .countdown {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(0.25rem, 2vw, 1rem);
+/*  gap: clamp(0.25rem, 2vw, 1rem);*/
+gap: clamp(2.25rem, 2vw, 1rem);
   margin: 0;
 }
 
 .countdown-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: auto;
   background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
 }
 
-.our-day-container{padding-top: 3rem;}
+/*.our-day-container{padding-top: 3rem;}*/
 .cronologic-box .our-day-container img{width: 90px;}
 .cronologic-box .our-day-container p{font-size: 8px; font-style: italic; padding-left: 1rem; padding-right: 1rem;} 
 .cronologic-box .our-day-container span{font-size: 9px;}
@@ -157,54 +168,61 @@ img {
 }
 
 .ceremony-box, .how-arrive-box{background-color:#FAF8EC}
-.ceremony-box #basilica-img{width: 390px;}
+.ceremony-box #basilica-img{
+  width: 390px; 
+  padding: 20px;
+  padding-top: 40px ;
+  padding-bottom: 40px;
+}
 .ceremony-box span{font-size: 9.6px; font-family: 'Cizel', Georgia, serif;font-weight: 300; line-height: 14.4px; letter-spacing: 2.69px; color:#8A7358}
-.ceremony-box p{font-size: 18px; font-style: italic; font-weight: 300; line-height: 28px; letter-spacing: 0.16px;  color: #6B6252; padding-left: 1rem; padding-right: 1rem;} 
-.ceremony-box h2{font-size: 20px; font-family: 'Cizel', Georgia, serif; font-weight: 500; line-height: 28px; letter-spacing: 1px; color: #2B2620;}
-.ceremony-box #escudo{width: 135px; margin-bottom: 1rem;}
+.ceremony-box p{font-size: 18px; font-style: italic; font-weight: 300; line-height: 28px; letter-spacing: 0.16px;  color: #6B6252; padding-left: 1.5rem; padding-right: 1.5rem;} 
+.ceremony-box h2{font-size: 20px; font-family: 'Cizel', Georgia, serif; font-weight: 500; line-height: 28px; letter-spacing: 1px; color: #2B2620; margin-top: 1rem; margin-bottom: 1rem;}
+.ceremony-box #escudo{width: 135px; margin-bottom: 1rem; margin-top: 1rem;}
 
 .dress-code-box{background-color:#FAF8EC; padding-top: 3rem;}
-.dress-code-box h2{font-size: 20px; font-family: 'Cizel', Georgia, serif; font-weight: 500; line-height: 28px; letter-spacing: 1px;}
-.dress-code-box h3{font-size: 13px; font-weight: 500; line-height: 14.4px; letter-spacing: 2.69px; margin-top: 1rem;}
+.dress-code-box h2{font-size: 20px; font-family: 'Cizel', Georgia, serif; font-weight: 500; line-height: 28px; letter-spacing: 1px; margin-top: 1rem; margin-bottom: 1rem;}
+.dress-code-box h3{font-size: 13px; font-weight: 500; line-height: 14.4px; letter-spacing: 2.69px; margin-top: 1rem; margin-bottom: 1rem;}
 .dress-code-box p{font-size: 18px; font-style: italic; font-weight: 300; line-height: 28px; letter-spacing: 0.16px;  color: #6B6252; padding-left: 1rem; padding-right: 1rem;} 
 .dress-code-box img#dress-code{width: 316px;}
 .dress-code-box #dress-code-options .icon img{width:45px}
 .dress-code-box #dress-code-options.row div.col-6 img.icon{width: 120px;}
+.dress-code-box .separador-corazon{display: block;width: auto;margin-inline: auto;}
 div#dress-code-options.row div.col-12.col-md-6 img.icon{width: 188px;}
 
-.how-arrive-box{padding-right: 1rem;}
+.how-arrive-box{padding-right: 1rem; padding-top: 2rem ;}
 .how-arrive-box #options-box {
   --bs-gutter-x: 0.5rem;
   --bs-gutter-y: 1rem;
   padding-left: 40px;
   padding-right: 40px;
 }
-.how-arrive-box h2{font-size: 20px; font-family: 'Cizel', Georgia, serif; font-weight: 500; line-height: 28px; letter-spacing: 1px; color:#2B2620}
+.how-arrive-box h2{font-size: 20px; font-family: 'Cizel', Georgia, serif; font-weight: 500; line-height: 28px; letter-spacing: 1px; color:#2B2620; margin-top: 2rem; margin-bottom: 1rem;}
 .how-arrive-box h3{font-size: 13px; font-weight: 500; margin-top: 1rem; line-height: 14.4px; letter-spacing: 2.69px; font-family: 'Cizel', Georgia, serif;}
-.how-arrive-box p{font-size: 18px; font-style: italic; font-weight: 300; line-height: 28px; letter-spacing: 0.16px; padding-left: 1rem; padding-right: 1rem; color: #6B6252;}
+.how-arrive-box p{font-size: 18px; font-style: italic; font-weight: 300; line-height: 28px; letter-spacing: 0.16px; padding-left: 1rem; padding-right: 1rem; color: #6B6252; margin-top: 1rem; padding-bottom: 2rem;}
 /*.how-arrive-box #options-box p {padding-inline: 0.25rem;}*/
 .how-arrive-box #options-box img{width: 46px;}
 
-.our-estate-box img{width: 210px;}
+.our-estate-box img{width: 210px; padding-bottom: 2rem;}
 .our-estate-box{margin-bottom: 1rem; padding-left: 40px; padding-right: 40px; margin-top: 3rem;}
-.our-estate-box h2{font-size: 20px; font-family: 'Cizel', Georgia, serif; font-weight: 500; line-height: 28px; letter-spacing: 1px;}
+.our-estate-box h2{font-size: 20px; font-family: 'Cizel', Georgia, serif; font-weight: 500; line-height: 28px; letter-spacing: 1px; margin-top: 1rem; margin-bottom: 1rem;}
 .our-estate-box span{font-size: 9px; font-weight: 300; font-family: 'Cizel'; line-height: 14.4px; letter-spacing: 2.69px; color: #8A7358;}
-.our-estate-box p{font-size: 18px; font-style: italic; font-weight: 300; line-height: 28px; letter-spacing: 0.16px; padding-left: 1rem; padding-right: 1rem; color: #6B6252;}
-.our-estate-box img{width: 390px;}
+.our-estate-box p{font-size: 18px; font-style: italic; font-weight: 300; line-height: 28px; letter-spacing: 0.16px; /*padding-left: 1rem; padding-right: 1rem;*/ color: #6B6252;}
+.our-estate-box img{width: 339px;}
 
 .detail-box{background-color: #FFF; padding: 2rem;}
 .data-detail-box{border: solid #000 1px; padding: 40px 0px 43px 0px; border-radius: 8px;}
 .detail-box h2{font-size: 20px; font-family: 'Cizel', Georgia, serif; font-weight: 500; line-height: 28px; letter-spacing: 1px; color:#2B2620}
 .detail-box span{font-size: 9px; font-weight: 300; font-family: 'Cizel'; line-height: 14.4px; letter-spacing: 2.69px; color: #8A7358;}
 .detail-box p{font-size: 18px; font-style: italic; font-weight: 300; line-height: 28px; letter-spacing: 0.16px; padding-left: 1rem; padding-right: 1rem; color: #6B6252;}
-.detail-box span#count-number{font-weight: 400; font-size: 17px; line-height: 29.44px; letter-spacing: -0.57px; color: #171717;}
-.detail-box #signature{font-family: 'Cizel', Georgia, serif; font-size: 18px; font-weight: 400; line-height: 19.5px; letter-spacing: 0; color: #555935; font-style: normal;}
+.detail-box span#count-number{font-weight: 400; font-size: 17px; line-height: 29.44px; letter-spacing: -0.57px; color: #171717; font-family: "Plus Jakarta Sans", sans-serif; display: block; margin-top: 1rem;}
+.detail-box #signature{font-family: 'Cizel', Georgia, serif; font-size: 18px; font-weight: 400; line-height: 19.5px; letter-spacing: 0; color: #555935; font-style: normal; margin-top: 2rem;}
 
 footer{background-color: #555935; padding-bottom: 3rem; padding-left: 40px; padding-right: 40px;}
 footer p{color:#F8EDE3E5; font-size: 11.5px; line-height: 17.25px; letter-spacing: 3.45px; font-weight: 500;}
 footer span{color: #F8EDE3D9; font-size: 16px; font-weight: 400; font-style: italic; line-height: 24px; letter-spacing: 0.4px;}
 footer img{width: 210px;}
 footer .logo img{width: 60px; padding-top: 1rem; padding-bottom: 1rem;}
+footer .initials{color: #FFF;  font-family: "Cinzel", serif; font-weight: 400; font-style: regular; font-size: 58px; line-height: 58px;letter-spacing: 4.64px; padding-top: 4rem; margin-bottom: 2rem;}
 
 .filigrana-olivo {
   padding: 0;
